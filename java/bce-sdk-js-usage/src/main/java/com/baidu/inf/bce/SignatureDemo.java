@@ -25,7 +25,6 @@ import com.baidubce.http.Headers;
 import com.baidubce.http.HttpMethodName;
 import com.baidubce.internal.InternalRequest;
 import com.baidubce.services.sts.StsClient;
-import com.baidubce.services.sts.model.Credentials;
 import com.baidubce.services.sts.model.GetSessionTokenRequest;
 import com.baidubce.services.sts.model.GetSessionTokenResponse;
 import com.baidubce.util.DateUtils;
@@ -85,10 +84,9 @@ public class SignatureDemo {
                 + "\"SecretAccessKey\": \"%s\"," + "\"SessionToken\": \"%s\","
                 + "\"Expiration\": \"%s\"" + "}";
 
-        Credentials c = response.getCredentials();
-        return String.format(pattern, c.getAccessKeyId(),
-                c.getSecretAccessKey(), c.getSessionToken(),
-                DateUtils.formatAlternateIso8601Date(c.getExpiration()));
+        return String.format(pattern, response.getAccessKeyId(),
+                response.getSecretAccessKey(), response.getSessionToken(),
+                DateUtils.formatAlternateIso8601Date(response.getExpiration()));
     }
 
     private String getPolicySignature(String policy)
