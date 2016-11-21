@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>bce-sdk-js.VodClient demo 4 MoE</title>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <!--[if lt IE 8]><script src="../bower_components/json3/lib/json3.min.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="../bower_components/js-polyfills/es5.js"></script><![endif]-->
+    <!--[if lt IE 10]><script src="../bower_components/moxie/bin/js/moxie.min.js"></script><![endif]-->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/humanize/humanize.js"></script>
+    <script src="../bower_components/bce-bos-uploader/bce-bos-uploader.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../utils.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>bce-sdk-js.VodClient demo 4 MoE</h2>
+          <div class="alert alert-success">
+            本页面向您展示如何使用<code>bce-bos-uploader</code>，上传文档，并调用<code>bce-sdk-js.VodClient</code>的API来完成文档转码，然后得到适应各种设备平台的视频播放地址
+          </div>
+          <form class="form-inline">
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                <span class="glyphicon glyphicon-paperclip"></span> 选择1G以内的文件
+                <input type="file" id="file" />
+              </span>
+              <button type="submit" class="btn btn-success" disabled>上传媒资</button>
+              <button hidden id="view-all" class="btn btn-default">查看视频列表</button>
+              <span class="network-speed"></span>
+            </div>
+          </form>
+          <br />
+          <table id="files" class="table table-bordered">
+            <colgroup>
+              <col width="50px" />
+              <col width="50px" />
+              <col width="180px" />
+              <col width="80px" />
+              <col width="80px" />
+              <col width="180px" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>状态</th>
+                <th>进度</th>
+                <th>大小</th>
+                <th>耗时(s)</th>
+                <th>媒资ID</th>
+                <th>文件名</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="7" class="empty">请选择文件...</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <table id="vods" class="table table-bordered" hidden>
+            <colgroup>
+              <col width="50px" />
+              <col width="250px" />
+              <col width="120px" />
+              <col width="80px" />
+              <col width="120px" />
+              <col width="170px" />
+              <col width="170px" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>名称</th>
+                <th>大小</th>
+                <th>时长(秒)</th>
+                <th>状态</th>
+                <th>创建时间</th>
+                <th>发布时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="8" class="empty">请点击 查看视频列表 按钮</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="../utils.js"></script>
+    <script src="vod.js"></script>
+  </body>
+</html>
+

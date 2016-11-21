@@ -1,0 +1,9 @@
+{
+  "port": 8800,
+  "uptoken_url": "http://localhost:8801/ack",
+  "enable_sts": true,
+
+  "ak": "<your ak>",
+  "sk": "<your sk>",
+  "bucket": "<your bucket>"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "bce-sdk-js-usage",
+  "version": "1.0.0",
+  "description": "bce-sdk-js samples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeight/bce-sdk-js-usage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leeight/bce-sdk-js-usage/issues"
+  },
+  "homepage": "https://github.com/leeight/bce-sdk-js-usage#readme",
+  "dependencies": {
+    "bce-sdk-js": "^0.2.2",
+    "mime": "^1.3.4"
+  }
+}

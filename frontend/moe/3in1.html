@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3in1 4 MoE</title>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <!--[if lt IE 8]><script src="../bower_components/json3/lib/json3.min.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="../bower_components/js-polyfills/es5.js"></script><![endif]-->
+    <!--[if lt IE 10]><script src="../bower_components/moxie/bin/js/moxie.min.js"></script><![endif]-->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/humanize/humanize.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/bce-bos-uploader/bce-bos-uploader.bundle.min.js"></script>
+    <script src="/get_sts_token"></script>
+    <link rel="stylesheet" type="text/css" href="../utils.css" />
+    <link rel="icon" type="image/x-icon" href="https://cloud.baidu.com/img/fi.ico">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://cloud.baidu.com/index.html"><img src="https://bce.bdstatic.com/portal/logo2x_c12d2ca0.png" style="height: 40px;position: relative;top: -10px;" alt="百度开放云"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="view-docs-modal.html" data-toggle="modal" data-target="#view-docs-modal">查看文档列表</a></li>
+            <li><a href="view-vods-modal.html" data-toggle="modal" data-target="#view-vods-modal">查看视频列表</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>3in1 4 MoE</h2>
+          <div class="alert alert-success">
+            根据文件后缀自动判断应该上传到 BOS，VOD，DOC 这些服务
+          </div>
+          <form class="form-inline" id="form">
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                <span class="glyphicon glyphicon-paperclip"></span> 选择50Gb以内的文件
+                <input type="file" id="file" />
+              </span>
+              <button type="submit" class="btn btn-success" disabled>上传文件</button>
+              <span class="network-speed"></span>
+            </div>
+          </form>
+          <br />
+          <table id="files" class="table table-bordered">
+            <colgroup>
+              <col width="50px" />
+              <col width="50px" />
+              <col width="180px" />
+              <col width="80px" />
+              <col width="80px" />
+              <col width="200px" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>状态</th>
+                <th>进度</th>
+                <th>大小</th>
+                <th>耗时(s)</th>
+                <th>ID</th>
+                <th>文件名</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="7" class="empty">请选择文件...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="view-docs-modal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="view-vods-modal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+    <script src="../utils.js"></script>
+    <script src="3in1.js"></script>
+  </body>
+</html>
+
