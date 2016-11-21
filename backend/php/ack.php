@@ -12,13 +12,10 @@
  * specific language governing permissions and limitations under the License.
  */
 include 'BaiduBce.phar';
+include 'Config.php';
 
 use BaiduBce\Auth\BceV1Signer;
 use BaiduBce\Util\DateUtils;
-
-
-define('AK', '<your ak>');
-define('SK', '<your sk>');
 
 class SignatureBuilder {
     public function simple() {
@@ -39,8 +36,8 @@ class SignatureBuilder {
         $headers = json_decode($this->getQuery('headers'), TRUE);
 
         $credentials = array(
-            'ak' => AK,
-            'sk' => SK
+            'ak' => Config::ak,
+            'sk' => Config::sk
         );
 
         $signer = new BceV1Signer();
@@ -68,10 +65,10 @@ class SignatureBuilder {
 
     public function policy() {
         $policy = base64_encode($this->getQuery('policy'));
-        $signature = hash_hmac('sha256', $policy, SK);
+        $signature = hash_hmac('sha256', $policy, Config::sk);
 
         return array(
-            'accessKey' => AK,
+            'accessKey' => Config::ak,
             'policy' => $policy,
             'signature' => $signature
         );

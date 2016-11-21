@@ -21,9 +21,7 @@ public class App extends NanoHTTPD {
         String sts = params.get("sts");
         String callback = params.get("callback");
 
-        String ak = System.getenv("AK");
-        String sk = System.getenv("SK");
-        String responseBody = new SignatureDemo(ak, sk).doIt(httpMethod, path,
+        String responseBody = new SignatureDemo(Config.ak, Config.sk).doIt(httpMethod, path,
                 queries, headers, policy, sts, callback);
         Response response = newFixedLengthResponse(responseBody);
         response.addHeader("Content-Type", "text/javascript");
@@ -31,7 +29,7 @@ public class App extends NanoHTTPD {
     }
 
     public static void main(String args[]) throws IOException {
-        App app = new App(7788);
+        App app = new App(Config.port + 1);
         app.start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
     }
 }

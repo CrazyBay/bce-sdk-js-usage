@@ -1,2 +1,4 @@
 node_modules
 target
+backend/php/Config.php
+backend/java/src/main/java/com/baidu/inf/bce/Config.java
