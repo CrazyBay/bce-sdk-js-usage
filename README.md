@@ -25,7 +25,6 @@ npm install
 npm run prepare
 ```
 
-## 运行 Node.js 的例子
 ## 启动 server
 
 |*类别*|*命令*|
