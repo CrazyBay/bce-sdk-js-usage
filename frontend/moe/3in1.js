@@ -213,6 +213,7 @@ var uploader = new baidubce.bos.Uploader({
   bos_bucket: BOS_BUCKET,
   bos_multipart_parallel: 5,
   chunk_size: '8mb',
+  tracker_id: null,
 
   bos_ak: AK,
   bos_sk: SK,
