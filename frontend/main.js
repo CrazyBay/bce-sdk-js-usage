@@ -28,6 +28,7 @@ var server = http.createServer((req, res) => {
 
     if (!config.enable_sts) {
       res.end(`
+        var G_ROOT_AK = "${config.ak}";
         var G_AK = "${config.ak}";
         var G_SK = "${config.sk}";
         var G_SESSION_TOKEN = null;
@@ -57,6 +58,7 @@ var server = http.createServer((req, res) => {
     };
     stsClient.getSessionToken(60000, acls).then(function (response) {
       res.end(`
+        var G_ROOT_AK = "${config.ak}";
         var G_AK = "${response.body.accessKeyId}";
         var G_SK = "${response.body.secretAccessKey}";
         var G_SESSION_TOKEN = "${response.body.sessionToken}";

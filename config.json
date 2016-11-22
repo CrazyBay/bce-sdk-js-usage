@@ -3,7 +3,7 @@
   "uptoken_url": "http://localhost:8801/ack",
   "enable_sts": true,
 
-  "ak": "C2f04bd88ebb0a66a1bffd24170d3465",
-  "sk": "5bceac8219b09fb3eeffb8ec506b1f8c",
-  "bucket": "bce-bos-uploader"
+  "ak": "<your ak>",
+  "sk": "<your sk>",
+  "bucket": "<your bucket>"
 }

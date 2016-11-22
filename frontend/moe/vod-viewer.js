@@ -28,31 +28,36 @@ if (!mediaId) {
   alert('No mediaId found.');
 }
 else {
-  vod.setMediaId(mediaId).code({width: 800, height: 500, autostart: true, ak: AK}).then(function (response) {
-    var codes = response.body.codes;
-    var codesMap = {};
-    for (var i = 0; i < codes.length; i++) {
-      codesMap[codes[i].codeType] = codes[i].sourceCode;
-    }
+  document.title = getQuery('title');
+  vod.setMediaId(mediaId).code({width: 800, height: 500, autostart: true, ak: G_ROOT_AK})
+    .then(function (response) {
+      var codes = response.body.codes;
+      var codesMap = {};
+      for (var i = 0; i < codes.length; i++) {
+        codesMap[codes[i].codeType] = codes[i].sourceCode;
+      }
 
-    if (!codesMap['file'] || !codesMap['cover']) {
-      $('#player').html('file or cover is undefined.');
-      return;
-    }
+      if (!codesMap['file'] || !codesMap['cover']) {
+        $('#player').html('file or cover is undefined.');
+        return;
+      }
 
-    cyberplayer('player').setup({
-        width: 800,
-        height: 500,
-        file: codesMap['file'],
-        image: codesMap['cover'],
-        autostart: true,
-        stretching: "uniform",
-        repeat: false,
-        volume: 100,
-        controls: true,
-        ak: AK
+      cyberplayer('player').setup({
+          width: 800,
+          height: 500,
+          file: codesMap['file'],
+          image: codesMap['cover'],
+          autostart: true,
+          stretching: "uniform",
+          repeat: false,
+          volume: 100,
+          controls: true,
+          ak: G_ROOT_AK
+      });
+    })
+    .catch(function (error) {
+      $('#player').html(JSON.stringify(error));
     });
-  });
 }
 
 
