@@ -36,4 +36,16 @@ npm run prepare
 
 然后在浏览器里面打开 <http://localhost:8800/moe/3in1.html> 即可
 
+## 关于 crossdomain.xml
+
+IE下面跨域请求是通用 moxie.swf 发起的，因此涉及到一些 crossdomain.xml 文件的配置。
+
+|*地址*|*作用*|*状态*|
+|------|------|------|
+|http://doc.baidubce.com/crossdomain.xml|DocClient.Document.createFromBos()|正常|
+|http://vod.baidubce.com/crossdomain.xml|VodClient.Media.apply()|正常|
+|http://vod-gfsc6mdbcfkc35xq.bj.bcebos.com/crossdomain.xml|BosClinet.putObject...|**需要初始化**|
+|http://foobar.exp.bcevod.com/crossdomain.xml|Flash播放器|**需要初始化**|
+|http://`<my-bucket>`.bj.bcebos.com/crossdomain.xml|BosClinet.putObject....|`npm run prepare`自动初始化|
+
 

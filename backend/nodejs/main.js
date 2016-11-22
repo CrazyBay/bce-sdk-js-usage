@@ -66,7 +66,7 @@ function buildNormalResponse(query) {
     var headers = safeParse(query.headers) || {};
 
     var auth = new sdk.Auth(config.ak, config.sk);
-    var xbceDate = new Date(2016, 3, 23, 10, 30, 30);
+    var xbceDate = new Date();
     var timestamp = xbceDate.getTime() / 1000;
     var signature = auth.generateAuthorization(httpMethod, path, queries, headers, timestamp);
 
