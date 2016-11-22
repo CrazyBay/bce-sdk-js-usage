@@ -19,6 +19,7 @@
   "homepage": "https://github.com/leeight/bce-sdk-js-usage#readme",
   "dependencies": {
     "bce-sdk-js": "^0.2.2",
-    "mime": "^1.3.4"
+    "mime": "^1.3.4",
+    "underscore": "^1.8.3"
   }
 }
