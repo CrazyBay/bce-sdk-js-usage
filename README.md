@@ -45,7 +45,7 @@ IE下面跨域请求是通用 moxie.swf 发起的，因此涉及到一些 crossd
 |http://doc.baidubce.com/crossdomain.xml|DocClient.Document.createFromBos()|正常|
 |http://vod.baidubce.com/crossdomain.xml|VodClient.Media.apply()|正常|
 |http://vod-gfsc6mdbcfkc35xq.bj.bcebos.com/crossdomain.xml|BosClinet.putObject...|**需要初始化**|
-|http://foobar.exp.bcevod.com/crossdomain.xml|Flash播放器|**需要初始化**|
 |http://`<my-bucket>`.bj.bcebos.com/crossdomain.xml|BosClinet.putObject....|`npm run prepare`自动初始化|
+|http://foobar.exp.bcevod.com/crossdomain.xml|Flash播放器|**需要初始化，另外访问权限受到策略组防盗链的影响**|
 
 
