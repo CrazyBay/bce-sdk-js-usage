@@ -157,6 +157,17 @@ function prepareCorsConfig(bucket) {
             console.log('Add cors config to bos://%s', bucket);
         })
         .catch(function (error) {
+            if (error.code === 'NoSuchCORSConfiguration') {
+                // 没有配置过，需要重新配置
+                return xbos.sendRequest('PUT', u.extend({
+                    body: JSON.stringify({
+                        corsConfiguration: [DEFAULT_CORS_CONFIG]
+                    })
+                }, options)).then(function () {
+                    console.log('Add cors config to bos://%s', bucket);
+                });
+                return;
+            }
             console.error(error);
         });
 }
