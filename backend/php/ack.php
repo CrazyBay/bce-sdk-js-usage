@@ -16,6 +16,7 @@ include 'Config.php';
 
 use BaiduBce\Auth\BceV1Signer;
 use BaiduBce\Util\DateUtils;
+use BaiduBce\Services\Sts\StsClient;
 
 class SignatureBuilder {
     public function simple() {
@@ -55,11 +56,20 @@ class SignatureBuilder {
     }
 
     public function sts() {
+        $acl = $this->getQuery('sts');
+
+        $credentials = array('ak' => Config::ak, 'sk' => Config::sk);
+        $client = new StsClient(array(
+            'credentials' => $credentials,
+            'stsEndpoint' => 'https://sts.bj.baidubce.com'
+        ));
+
+        $response = $client->getSessionToken(array('acl' => $acl));
         return array(
-            'AccessKeyId' => '',
-            'SecretAccessKey' => '',
-            'SessionToken' => '',
-            'Expiration' => ''
+            'AccessKeyId' => $response->accessKeyId,
+            'SecretAccessKey' => $response->secretAccessKey,
+            'SessionToken' => $response->sessionToken,
+            'Expiration' => $response->expiration
         );
     }
 
@@ -111,8 +121,3 @@ function Main() {
 }
 
 Main();
-
-
-
-
-/* vim: set ts=4 sw=4 sts=4 tw=120: */
