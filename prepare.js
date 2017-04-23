@@ -100,7 +100,7 @@ function toJavaConfig(dest) {
  */
 function uploadCrossDomainXml(bucket) {
     var xbos = new sdk.BosClient({
-        endpoint: 'https://bj.bcebos.com',
+        endpoint: config.endpoint,
         credentials: {
             ak: config.ak,
             sk: config.sk
@@ -128,7 +128,7 @@ function uploadCrossDomainXml(bucket) {
  */
 function prepareCorsConfig(bucket) {
     var xbos = new sdk.BosClient({
-        endpoint: 'https://bj.bcebos.com',
+        endpoint: config.endpoint,
         credentials: {
             ak: config.ak,
             sk: config.sk

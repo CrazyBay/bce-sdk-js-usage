@@ -12,6 +12,7 @@
 |ak|`<your ak>`|
 |sk|`<your sk>`|
 |bucket|`<your bos bucket>`|
+|endpoint|`https://bj.bcebos.com`|
 
 **安装依赖**
 
